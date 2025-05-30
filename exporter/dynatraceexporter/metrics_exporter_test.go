@@ -502,7 +502,7 @@ func Test_exporter_send_TooLarge(t *testing.T) {
 
 func Test_exporter_send_NotFound(t *testing.T) {
 	ts := httptest.NewServer(http.HandlerFunc(func(w http.ResponseWriter, _ *http.Request) {
-		w.WriteHeader(404)
+		w.WriteHeader(http.StatusNotFound)
 		_, _ = w.Write([]byte{})
 	}))
 	defer ts.Close()
@@ -619,7 +619,7 @@ func Test_exporter_send_chunking(t *testing.T) {
 
 func Test_exporter_PushMetricsData_Error(t *testing.T) {
 	ts := httptest.NewServer(http.HandlerFunc(func(w http.ResponseWriter, _ *http.Request) {
-		w.WriteHeader(200)
+		w.WriteHeader(http.StatusOK)
 	}))
 	ts.Close()
 

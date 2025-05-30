@@ -26,10 +26,10 @@ import (
 	//"github.com/open-telemetry/opentelemetry-collector-contrib/internal/common/ttlmap"
 )
 
-const (
-	cSweepIntervalSeconds = 300
-	cMaxAgeSeconds        = 900
-)
+// const (
+// 	cSweepIntervalSeconds = 300
+// 	cMaxAgeSeconds        = 900
+// )
 
 // newMetricsExporter exports to a Dynatrace Metrics v2 API
 func newMetricsExporter(params exporter.Settings, cfg *config.Config) *metricsExporter {
