@@ -16,7 +16,7 @@ import (
 	"go.uber.org/zap"
 	"go.uber.org/zap/zaptest/observer"
 
-	"github.com/open-telemetry/opentelemetry-collector-contrib/internal/common/ttlmap"
+	//"github.com/open-telemetry/opentelemetry-collector-contrib/internal/common/ttlmap"
 )
 
 func TestSerializeMetric(t *testing.T) {
@@ -30,9 +30,9 @@ func TestSerializeMetric(t *testing.T) {
 		gaugeDp := metric.SetEmptyGauge().DataPoints().AppendEmpty()
 		gaugeDp.SetIntValue(3)
 
-		prev := ttlmap.New(1, 1, make(chan struct{}, 1))
+		//prev := ttlmap.New(1, 1, make(chan struct{}, 1))
 
-		serialized, err := SerializeMetric(logger, "prefix", metric, defaultDims, staticDims, prev)
+		serialized, err := SerializeMetric(logger, "prefix", metric, defaultDims, staticDims)
 		assert.NoError(t, err)
 
 		assert.Len(t, serialized, 1)
@@ -50,9 +50,9 @@ func TestSerializeMetric(t *testing.T) {
 		sumDp := sum.DataPoints().AppendEmpty()
 		sumDp.SetIntValue(4)
 
-		prev := ttlmap.New(1, 1, make(chan struct{}, 1))
+		//prev := ttlmap.New(1, 1, make(chan struct{}, 1))
 
-		serialized, err := SerializeMetric(logger, "prefix", metric, defaultDims, staticDims, prev)
+		serialized, err := SerializeMetric(logger, "prefix", metric, defaultDims, staticDims)
 		assert.NoError(t, err)
 
 		assert.Len(t, serialized, 1)
@@ -71,9 +71,9 @@ func TestSerializeMetric(t *testing.T) {
 		dp.SetSum(6)
 		dp.SetCount(3)
 
-		prev := ttlmap.New(1, 1, make(chan struct{}, 1))
+		//prev := ttlmap.New(1, 1, make(chan struct{}, 1))
 
-		serialized, err := SerializeMetric(logger, "prefix", metric, defaultDims, staticDims, prev)
+		serialized, err := SerializeMetric(logger, "prefix", metric, defaultDims, staticDims)
 		assert.NoError(t, err)
 
 		assert.Len(t, serialized, 1)
