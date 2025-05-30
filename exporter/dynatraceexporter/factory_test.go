@@ -21,6 +21,7 @@ import (
 
 	dtconfig "github.com/jangaraj/opentelemetry-collector-contrib/exporter/dynatraceexporter/config"
 	"github.com/jangaraj/opentelemetry-collector-contrib/exporter/dynatraceexporter/internal/metadata"
+
 	"github.com/open-telemetry/opentelemetry-collector-contrib/pkg/resourcetotelemetry"
 )
 
