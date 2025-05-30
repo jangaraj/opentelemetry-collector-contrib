@@ -1,7 +1,7 @@
 // Copyright The OpenTelemetry Authors
 // SPDX-License-Identifier: Apache-2.0
 
-package dynatraceexporter // import "github.com/jangaraj/opentelemetry-collector-contrib/exporter/dynatraceexporter"
+package dynatraceexporter // import "github.com/open-telemetry/opentelemetry-collector-contrib/exporter/dynatraceexporter"
 
 import (
 	"bytes"
@@ -21,9 +21,9 @@ import (
 	"go.opentelemetry.io/collector/pdata/pmetric"
 	"go.uber.org/zap"
 
-	"github.com/jangaraj/opentelemetry-collector-contrib/exporter/dynatraceexporter/config"
-	"github.com/jangaraj/opentelemetry-collector-contrib/exporter/dynatraceexporter/internal/serialization"
-	"github.com/open-telemetry/opentelemetry-collector-contrib/internal/common/ttlmap"
+	"github.com/open-telemetry/opentelemetry-collector-contrib/exporter/dynatraceexporter/config"
+	"github.com/open-telemetry/opentelemetry-collector-contrib/exporter/dynatraceexporter/internal/serialization"
+	//"github.com/open-telemetry/opentelemetry-collector-contrib/internal/common/ttlmap"
 )
 
 const (
@@ -45,15 +45,15 @@ func newMetricsExporter(params exporter.Settings, cfg *config.Config) *metricsEx
 
 	staticDimensions := dimensions.NewNormalizedDimensionList(dimensions.NewDimension("dt.metrics.source", "opentelemetry"))
 
-	prevPts := ttlmap.New(cSweepIntervalSeconds, cMaxAgeSeconds, make(chan struct{}, 1))
-	prevPts.Start()
+	// prevPts := ttlmap.New(cSweepIntervalSeconds, cMaxAgeSeconds, make(chan struct{}, 1))
+	// prevPts.Start()
 
 	return &metricsExporter{
 		settings:          params.TelemetrySettings,
 		cfg:               cfg,
 		defaultDimensions: defaultDimensions,
 		staticDimensions:  staticDimensions,
-		prevPts:           prevPts,
+		// prevPts:           prevPts,
 	}
 }
 
@@ -67,7 +67,7 @@ type metricsExporter struct {
 	defaultDimensions dimensions.NormalizedDimensionList
 	staticDimensions  dimensions.NormalizedDimensionList
 
-	prevPts *ttlmap.TTLMap
+	// prevPts *ttlmap.TTLMap
 }
 
 // for backwards-compatibility with deprecated `Tags` config option
@@ -122,7 +122,7 @@ func (e *metricsExporter) serializeMetrics(md pmetric.Metrics) []string {
 			for k := 0; k < metrics.Len(); k++ {
 				metric := metrics.At(k)
 
-				metricLines, err := serialization.SerializeMetric(e.settings.Logger, e.cfg.Prefix, metric, e.defaultDimensions, e.staticDimensions, e.prevPts)
+				metricLines, err := serialization.SerializeMetric(e.settings.Logger, e.cfg.Prefix, metric, e.defaultDimensions, e.staticDimensions)
 				if err != nil {
 					e.settings.Logger.Warn(
 						"failed to serialize",
