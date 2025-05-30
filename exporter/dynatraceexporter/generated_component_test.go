@@ -18,7 +18,7 @@ import (
 	"go.opentelemetry.io/collector/pdata/pmetric"
 	"go.opentelemetry.io/collector/pdata/ptrace"
 
-	"github.com/open-telemetry/opentelemetry-collector-contrib/exporter/dynatraceexporter/internal/metadata"
+	"github.com/jangaraj/opentelemetry-collector-contrib/exporter/dynatraceexporter/internal/metadata"
 )
 
 func TestComponentLifecycle(t *testing.T) {

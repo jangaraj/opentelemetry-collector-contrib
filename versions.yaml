@@ -45,7 +45,7 @@ module-sets:
       - github.com/open-telemetry/opentelemetry-collector-contrib/exporter/datadogexporter/integrationtest
       - github.com/open-telemetry/opentelemetry-collector-contrib/exporter/datasetexporter
       - github.com/open-telemetry/opentelemetry-collector-contrib/exporter/dorisexporter
-      - github.com/open-telemetry/opentelemetry-collector-contrib/exporter/dynatraceexporter
+      - github.com/jangaraj/opentelemetry-collector-contrib/exporter/dynatraceexporter
       - github.com/open-telemetry/opentelemetry-collector-contrib/exporter/elasticsearchexporter
       - github.com/open-telemetry/opentelemetry-collector-contrib/exporter/elasticsearchexporter/integrationtest
       - github.com/open-telemetry/opentelemetry-collector-contrib/exporter/faroexporter

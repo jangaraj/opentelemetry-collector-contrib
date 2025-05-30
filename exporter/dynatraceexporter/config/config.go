@@ -1,7 +1,7 @@
 // Copyright The OpenTelemetry Authors
 // SPDX-License-Identifier: Apache-2.0
 
-package config // import "github.com/open-telemetry/opentelemetry-collector-contrib/exporter/dynatraceexporter/config"
+package config // import "github.com/jangaraj/opentelemetry-collector-contrib/exporter/dynatraceexporter/config"
 
 import (
 	"errors"

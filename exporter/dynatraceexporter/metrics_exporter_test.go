@@ -26,8 +26,8 @@ import (
 	"go.opentelemetry.io/collector/pdata/pmetric"
 	"go.uber.org/zap"
 
-	"github.com/open-telemetry/opentelemetry-collector-contrib/exporter/dynatraceexporter/config"
-	"github.com/open-telemetry/opentelemetry-collector-contrib/exporter/dynatraceexporter/internal/metadata"
+	"github.com/jangaraj/opentelemetry-collector-contrib/exporter/dynatraceexporter/config"
+	"github.com/jangaraj/opentelemetry-collector-contrib/exporter/dynatraceexporter/internal/metadata"
 	//"github.com/open-telemetry/opentelemetry-collector-contrib/internal/common/ttlmap"
 )
 

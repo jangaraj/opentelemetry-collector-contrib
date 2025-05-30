@@ -19,8 +19,9 @@ import (
 	"go.opentelemetry.io/collector/confmap/xconfmap"
 	"go.opentelemetry.io/collector/exporter/exporterhelper"
 
-	dtconfig "github.com/open-telemetry/opentelemetry-collector-contrib/exporter/dynatraceexporter/config"
-	"github.com/open-telemetry/opentelemetry-collector-contrib/exporter/dynatraceexporter/internal/metadata"
+	dtconfig "github.com/jangaraj/opentelemetry-collector-contrib/exporter/dynatraceexporter/config"
+	"github.com/jangaraj/opentelemetry-collector-contrib/exporter/dynatraceexporter/internal/metadata"
+
 	"github.com/open-telemetry/opentelemetry-collector-contrib/pkg/resourcetotelemetry"
 )
 
