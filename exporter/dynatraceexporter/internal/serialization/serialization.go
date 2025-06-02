@@ -37,7 +37,7 @@ func SerializeMetric(logger *zap.Logger, prefix string, metric pmetric.Metric, d
 	}
 
 	if ce != nil {
-		ce.Write(zap.String("DataType", metric.Type().String()), zap.Int("points", points))
+		ce.Write(zap.String("DataType", metric.Type().String()), zap.Int("points", points), zap.String("metricLines", fmt.Sprintf("%v", metricLines)))
 	}
 
 	return metricLines, nil
